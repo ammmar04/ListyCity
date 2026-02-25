@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements AddCityFragment.A
             selectedPosition = position;
         });
 
+
         // Long-click to edit a city
         cityList.setOnItemLongClickListener((parent, view, position, id) -> {
             City cityToEdit = dataList.get(position);
