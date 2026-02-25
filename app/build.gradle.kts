@@ -5,12 +5,10 @@ plugins {
 
 android {
     namespace = "com.example.listycity"
-    compileSdk {
-        version = release(36)
-    }
+    compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.lab5_starter"
+        applicationId = "listycitylab5.r2710069"
         minSdk = 24
         targetSdk = 36
         versionCode = 1
