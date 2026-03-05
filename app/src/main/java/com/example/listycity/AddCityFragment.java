@@ -12,15 +12,34 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.DialogFragment;
 
+/**
+ * DialogFragment for adding or editing a city
+ */
 public class AddCityFragment extends DialogFragment {
+    /**
+     * Interface for handling city add/edit events
+     */
     interface AddCityDialogListener {
+        /**
+         * Called when a new city is added
+         * @param city The city to add
+         */
         void addCity(City city);
+
+        /**
+         * Called when an existing city is edited
+         * @param city The edited city
+         */
         void editCity(City city);
     }
     private AddCityDialogListener listener;
     private static final String ARG_CITY = "city";
 
-    // newInstance method for editing a city
+    /**
+     * Creates a new instance of AddCityFragment for editing a city
+     * @param city The city to edit
+     * @return A new instance of AddCityFragment
+     */
     public static AddCityFragment newInstance(City city) {
         AddCityFragment fragment = new AddCityFragment();
         Bundle args = new Bundle();
@@ -29,6 +48,10 @@ public class AddCityFragment extends DialogFragment {
         return fragment;
     }
 
+    /**
+     * Called when the fragment is attached to its context
+     * @param context The context to attach to
+     */
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
@@ -39,6 +62,11 @@ public class AddCityFragment extends DialogFragment {
         }
     }
 
+    /**
+     * Creates the dialog for adding or editing a city
+     * @param savedInstanceState The saved instance state
+     * @return The created dialog
+     */
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {

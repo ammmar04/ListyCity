@@ -29,6 +29,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 
+/**
+ * Main activity for the ListyCity application
+ * Manages a list of cities with Firebase Firestore integration
+ * Features: Real-time data sync, persistent add/edit/delete operations
+ */
 public class MainActivity extends AppCompatActivity implements AddCityFragment.AddCityDialogListener{
     ListView cityList;
     // Corrected declaration
@@ -42,6 +47,10 @@ public class MainActivity extends AppCompatActivity implements AddCityFragment.A
     private FirebaseFirestore db;
     private CollectionReference citiesRef;
 
+    /**
+     * Adds a new city to the list and saves it to Firestore
+     * @param city The city to add
+     */
     @Override
     public void addCity(City city) {
         cityAdapter.add(city);
@@ -55,6 +64,10 @@ public class MainActivity extends AppCompatActivity implements AddCityFragment.A
         docRef.set(cityData);
     }
 
+    /**
+     * Edits an existing city and updates it in Firestore
+     * @param city The edited city
+     */
     @Override
     public void editCity(City city) {
         // Update in Firestore - Implemented with Claude Code
@@ -67,6 +80,11 @@ public class MainActivity extends AppCompatActivity implements AddCityFragment.A
         cityAdapter.notifyDataSetChanged();
     }
 
+    /**
+     * Called when the activity is first created
+     * Sets up the UI, initializes Firestore, and configures event listeners
+     * @param savedInstanceState The saved instance state
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
